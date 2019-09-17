@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+     <script src="jquery.mousewheel.min.js"></script>
+     <style>
+         *{
+             margin: 0;
+             padding: 0
+         }
+         #header, #main , #content , #content2 , #content3{
+             width:100%;
+             position: relative;
+         }
+         
+         #header p{
+             position: fixed;
+         }         
+        
+         
+         #main .line{
+             width:100%;
+             height:100%;
+             background: rgba(0,0,0,0.5);
+             position: absolute;
+             top:0;
+             left:0;
+             transform: scaleY(0);
+         }
+         #content .line{
+              width:100%;
+             height:100%;
+             background: rgba(0,0,0,0.5);
+             position: absolute;
+             top:0;
+             left:0;             
+             transform: scaleY(0);
+         }
+         
+         #content2 .line{
+              width:100%;
+             height:100%;
+             background: rgba(0,0,0,0.5);
+             position: absolute;
+             top:0;
+             left:0;             
+             transform: scaleY(0);
+         }    
+         
+         #content3 .line{
+              width:100%;
+             height:100%;
+             background: rgba(0,0,0,0.5);
+             position: absolute;
+             top:0;
+             left:0;             
+             transform: scaleY(0);
+         } 
+         
+         #nav{
+             position: fixed;
+             width:1.2%;
+             height:25%;
+             z-index: 5;
+             
+             right:10%;
+             top:50%;
+             transform: translateY(-50%);
+         }
+         ul{
+             list-style: none;
+         }
+         #nav ul{
+             position: absolute;
+             width:100%;
+             height:100%;
+             top:0;
+             left:0;
+         }
+         #nav li{
+             width:100%;
+             height:9%;
+             margin-bottom: 20%;
+             background: lightblue;    
+             box-shadow: 5px 5px 6px black;
+         }
+         
+         #nav li:nth-of-type(2),
+         #nav li:nth-of-type(3),
+         #nav li:nth-of-type(4),
+         #nav li:nth-of-type(5){
+             background: white; 
+         }
+         
+         #wrap{
+             width: 100%;
+             overflow: hidden;    
+             background: url(images/back/bg_back.jpg) no-repeat top/cover;
+             background-attachment: fixed;
+         }
+         
+         #header img{
+             position: absolute;
+         }
+         #header img:nth-of-type(1){
+             top:0;
+             left:0;
+         }
+         #header img:nth-of-type(2){
+             top:20%;
+             left:50%;
+             transform: translateX(-50%);
+         }
+         #header img:nth-of-type(3){
+             top:30%;
+             left:50%;
+             transform: translateX(-50%);             
+         }
+         #header img:nth-of-type(4){
+             top:80%;
+             left:50%;
+             transform: translate(-50%,-50%);
+             animation: ani1 0.8s infinite alternate;
+         }
+         #header img:nth-of-type(5){
+             top:0;
+             right:0;
+         }
+         
+         @keyframes ani1{
+             0%{
+                 top:80%;
+             }
+             100%{
+                 top:82%;                 
+             }
+         }
+         
+         #main img , #content img, #content2 img, #content3 img{
+             position: absolute;
+             z-index: 3;
+         }
+         #main img:nth-of-type(1),#content img:nth-of-type(1),#content2 img:nth-of-type(1),#content3 img:nth-of-type(1){
+             right:10%;
+             top:50%;
+             transform: translateY(-50%);
+         }
+         #main img:nth-of-type(2),#content img:nth-of-type(2){
+             left:30%;
+             top:50%;
+             transform: translate(-50%,-50%);
+         }         
+         #main img:nth-of-type(3),#content img:nth-of-type(3){
+             left:45%;
+             top:50%;
+             transform: translate(-50%,-50%);
+         }    
+         
+         #main .line2,#content .line2{
+            position: absolute;
+             width:100%;
+             height:30%;
+             background: rgba(0,0,0,0.7);
+             z-index: 2;
+             top:50%;
+             transform: translateY(-50%);
+             border-top:2px solid  #B99F65;
+             border-bottom:2px solid  #B99F65;
+         }
+         
+        
+    </style>
+</head>
+<body>
+  <div id="nav">
+      <ul>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+      </ul>
+  </div>
+<div id="wrap">
+   <div id="header" class="section">
+       <img src="images/back/logo_site.png" width="15%" height="15%">
+       <img src="images/back/bg_title.png" width="18%" height="13%">
+       <img src="images/back/bg_text.png" width="30%" height="30%">
+       <img src="images/back/bg_scroll.png" width="10%" height="10%">
+       <img src="images/logo_nintendo_redBox.gif" width="10%" height="10%">
+   </div>
+   <div id="main" class="section">
+       <div class="line"></div>
+       <img src="images/back/bg_chara1.png" width="35%" height="70%">
+       <img src="images/back/bg_chara1_name.png" width="10%" height="10%">
+       <img src="images/back/bg_chara1_text.png" width="15%" height="15%">
+       <div class="line2"></div>
+   </div>   
+   <div id="content" class="section">
+       <div class="line"></div>
+        <img src="images/back/bg_chara3.png" width="35%" height="70%">
+       <img src="images/back/bg_chara3_name.png" width="10%" height="10%">
+       <img src="images/back/bg_chara3_text.png" width="15%" height="15%">
+       <div class="line2"></div>
+   </div>   
+   <div id="content2" class="section">
+       <div class="line"></div>
+        <img src="images/back/bg_chara4.png" width="35%" height="70%">
+       <img src="images/back/bg_chara4_name.png" width="10%" height="10%">
+       <img src="images/back/bg_chara4_text.png" width="15%" height="15%">
+       <div class="line2"></div>       
+   </div>   
+   <div id="content3" class="section">
+       <div class="line"></div>
+        <img src="images/back/bg_chara5.png" width="35%" height="70%">
+       <img src="images/back/bg_chara5_name.png" width="10%" height="10%">
+       <img src="images/back/bg_chara5_text.png" width="15%" height="15%">
+       <div class="line2"></div>       
+   </div>         
+</div>     
+   <script>
+       var ht = $(document).height();
+       
+       $('#header , #main , #content, #content2 , #content3').css({
+           height: ht
+       });
+       
+       $('#wrap').css({
+           height:ht*5
+       })
+       
+        $(window).scroll(function(){
+            var sc = Math.ceil($(document).scrollTop())+1;
+            var ind = 0;
+            console.log(sc);
+            console.log(ht*2+":::"+ht*3);
+            if(sc <= 1){
+                $('#main .line , #content .line , #content2 .line , #content3 .line').css({
+                    transform:'scaleY(0)'
+                });
+                ind = 0;
+            }else if(sc >= ht && sc < ht*2){
+                $('#main .line').css({
+                    transform:'scaleY(1)',
+                    transition:'all 0.5s'
+                });
+                ind = 1;
+            }else if(sc >= ht*2 && sc < ht*3){
+                
+                $('#content .line').css({
+                    transform:'scaleY(1)',
+                    transition:'all 0.5s'
+                });
+                ind = 2;
+            }else if( sc >= ht*3 && sc < ht*4){
+                $('#content2 .line').css({
+                    transform:'scaleY(1)',
+                    transition:'all 0.5s'
+                });   
+                ind = 3;
+            }else if(sc >= ht*4 && sc < ht*5){
+                $('#content3 .line').css({
+                    transform:'scaleY(1)',
+                    transition:'all 0.5s'
+                });    
+                ind = 4;
+            }
+            
+                   $('#nav li:eq('+ind+')').css({
+                       background:'lightblue'
+                   });
+
+                   $('#nav li:not(:eq('+ind+'))').css({
+                       background:'white'
+                   });            
+            
+        });
+       
+       $('.section').mousewheel(function(e, delta){           
+           
+           if(delta >0){
+               var prve = $(this).prev().offset().top;
+               $('html , body').stop().animate({'scrollTop':prve});
+           }else if(delta <0){
+               var next = $(this).next().offset().top;
+               $('html , body').stop().animate({'scrollTop':next});
+           }           
+       });
+       
+       $('#nav li').click(function(){
+           var ind = $(this).index();
+           // == != > < >= <=  && ||
+           if(ind == 0){
+               $('html , body').stop().animate({'scrollTop':0});
+           }else if(ind == 1){
+               $('html , body').stop().animate({'scrollTop':ht});
+           }else if(ind == 2){
+               $('html , body').stop().animate({'scrollTop':ht*2});
+           }else if(ind == 3){
+               $('html , body').stop().animate({'scrollTop':ht*3});
+           }else if(ind == 4){
+               $('html , body').stop().animate({'scrollTop':ht*4});
+           }
+           
+           $('#nav li:eq('+ind+')').css({
+               background:'lightblue'
+           });
+           
+           $('#nav li:not(:eq('+ind+'))').css({
+               background:'white'
+           });
+           
+       });
+    </script>
+    
+</body>
+</html>
